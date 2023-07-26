@@ -30,3 +30,71 @@ if you call swap during the inner loop swap, update the swap variable.  In the o
 
 */
 
+function swap(arr, idx1, idx2) {
+    let temp = arr[idx1];
+    arr[idx1] = arr[idx2];
+    arr[idx2] = temp;
+    return arr;
+}
+
+function bubbleSort(arr) {
+    let noSwaps;
+    for (let i = arr.length - 1; i > -1; i--) {
+        noSwaps = true;
+        for (let j = 0; j <= i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr, j, j + 1);
+                noSwaps = false;
+            }
+        }
+        if (noSwaps) return arr;
+    }
+    return arr;
+}
+
+function arraysAreEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
+}
+
+function testBubbleSort() {
+    // Test 1: General Test with Unsorted Array
+    let arr1 = [64, 34, 25, 12, 22, 11, 90];
+    let sortedArr1 = bubbleSort([...arr1]); // Create a copy to keep the original array intact
+    console.log("Test 1:", arraysAreEqual(sortedArr1, [11, 12, 22, 25, 34, 64, 90]));
+
+    // Test 2: Test with Sorted Array (Best Case)
+    let arr2 = [1, 2, 3, 4, 5, 6, 7, 8];
+    let sortedArr2 = bubbleSort([...arr2]);
+    console.log("Test 2:", arraysAreEqual(sortedArr2, [1, 2, 3, 4, 5, 6, 7, 8]));
+
+    // Test 3: Test with Reverse Sorted Array (Worst Case)
+    let arr3 = [8, 7, 6, 5, 4, 3, 2, 1];
+    let sortedArr3 = bubbleSort([...arr3]);
+    console.log("Test 3:", arraysAreEqual(sortedArr3, [1, 2, 3, 4, 5, 6, 7, 8]));
+
+    // Test 4: Test with Array with Repeated Elements
+    let arr4 = [5, 2, 9, 5, 5, 8, 3];
+    let sortedArr4 = bubbleSort([...arr4]);
+    console.log("Test 4:", arraysAreEqual(sortedArr4, [2, 3, 5, 5, 5, 8, 9]));
+
+    // Test 5: Test with an Empty Array
+    let arr5 = [];
+    let sortedArr5 = bubbleSort([...arr5]);
+    console.log("Test 5:", arraysAreEqual(sortedArr5, []));
+
+    // Test 6: Test with Array containing a single element
+    let arr6 = [10];
+    let sortedArr6 = bubbleSort([...arr6]);
+    console.log("Test 6:", arraysAreEqual(sortedArr6, [10]));
+
+    // Test 7: Test with Array containing negative numbers
+    let arr7 = [-9, -5, -12, -7, -2];
+    let sortedArr7 = bubbleSort([...arr7]);
+    console.log("Test 7:", arraysAreEqual(sortedArr7, [-12, -9, -7, -5, -2]));
+}
+
+testBubbleSort();
