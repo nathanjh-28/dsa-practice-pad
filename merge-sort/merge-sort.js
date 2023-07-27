@@ -54,7 +54,7 @@ function merge(arr1, arr2) {
 }
 
 function mergeSort(arr) {
-    if (arr.length === 1 || arr.length === 0) return arr;
+    if (arr.length <= 1) return arr;
     let mid = Math.floor(arr.length / 2);
     let left = mergeSort(arr.slice(0, mid));
     let right = mergeSort(arr.slice(mid));
@@ -62,3 +62,52 @@ function mergeSort(arr) {
 
 }
 
+// TESTS
+
+function testMergeSort() {
+    // Test Case 1
+    const arr1 = [38, 27, 43, 3, 9, 82, 10];
+    const result1 = mergeSort(arr1);
+    const expected1 = [3, 9, 10, 27, 38, 43, 82];
+    console.log("Test Case 1:", arraysAreEqual(result1, expected1));
+
+    // Test Case 2
+    const arr2 = [];
+    const result2 = mergeSort(arr2);
+    const expected2 = [];
+    console.log("Test Case 2:", arraysAreEqual(result2, expected2));
+
+    // Test Case 3
+    const arr3 = [5];
+    const result3 = mergeSort(arr3);
+    const expected3 = [5];
+    console.log("Test Case 3:", arraysAreEqual(result3, expected3));
+
+    // Test Case 4
+    const arr4 = [100, 1000, 10, 10000, 1];
+    const result4 = mergeSort(arr4);
+    const expected4 = [1, 10, 100, 1000, 10000];
+    console.log("Test Case 4:", arraysAreEqual(result4, expected4));
+
+    // Test Case 5
+    const arr5 = [1, 1, 1, 1, 1];
+    const result5 = mergeSort(arr5);
+    const expected5 = [1, 1, 1, 1, 1];
+    console.log("Test Case 5:", arraysAreEqual(result5, expected5));
+}
+
+function arraysAreEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false;
+    }
+
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+testMergeSort();
