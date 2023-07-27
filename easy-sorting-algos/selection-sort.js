@@ -27,7 +27,24 @@ function swap(arr, idx1, idx2) {
 }
 
 function selectionSort(arr) {
-    console.log('testing 1,2,3')
+    let lowest;
+    for (let i = 0; i < arr.length; i++) {
+        lowest = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lowest]) lowest = j;
+        }
+        if (i !== lowest) swap(arr, i, lowest);
+    }
+
+    return arr;
+}
+
+function arraysAreEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+    }
+    return true;
 }
 
 function testSelectionSort() {
