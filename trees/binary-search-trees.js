@@ -15,7 +15,7 @@ Binary Search Trees is a sorted tree structure where the left child is smaller t
 // -----  Tree Node --------
 /* The node will have a property for it's value and a left and right for it's children.  */
 
-class TreeNode {
+class Node {
     constructor(value) {
         this.value = value;
         this.left = null;
@@ -23,8 +23,51 @@ class TreeNode {
     }
 }
 
-class BSTree {
+// ------- Binary Search Tree Class
+
+class BinarySearchTree {
     constructor() {
         this.root = null;
     }
+
+
+
+    // ----- Insert
+
+    /*
+    Create a new node.  If there isn't a root, make that node the root.
+    check if the value of the root is bigger or smaller than the new node's value.  If it is bigger check if there is a node to the right.  If there is more, continue checking to the right.
+     */
+
+    insert(value) {
+        let newNode = new Node(value);
+        if (this.root === null) {
+            this.root = newNode;
+            return this;
+        } else {
+            let current = this.root;
+            while (true) {
+                if (value === current.value) return undefined;
+                if (value < current.value) {
+                    if (currrent.left === null) {
+                        current.left = newNode;
+                        return this;
+                    } else {
+                        current = current.left;
+                    }
+                    if (value > current.value) {
+                        if (current.right === null) {
+                            current.right = newNode
+                            return this;
+                        } else {
+                            current = current.right;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
 }
