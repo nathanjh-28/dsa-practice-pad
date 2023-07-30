@@ -82,7 +82,7 @@ class BinarySearchTree {
                 found = true;
             }
         }
-        if (!found) return undefined;
+        if (!found) return null;
         return current;
     }
 }
