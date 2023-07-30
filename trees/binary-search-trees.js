@@ -68,8 +68,30 @@ class BinarySearchTree {
         }
     }
 
+    /*
+
+    Find
+    Take in a value and check to see if it is present in the BST.  If found return the node and if not found return null.
+
+    if the root of the tree is null, return null
+
+    set a variable for the root called current
+    set a boolean variable to false to track whether we found the node.
+
+    while loop based on if there is a current variable and if found is still false
+
+    if the value is less than the current value, set current to current.left
+
+    if the value is greater than the current value, set current to current.right
+
+    else, found is assigned to true
+
+    return current.
+
+    */
+
     find(value) {
-        if (this.root === null) return false;
+        if (this.root === null) return null;
         let current = this.root;
         let found = false;
         while (!found && current) {
