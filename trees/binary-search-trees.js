@@ -35,8 +35,21 @@ class BinarySearchTree {
     // ----- Insert
 
     /*
-    Create a new node.  If there isn't a root, make that node the root.
-    check if the value of the root is bigger or smaller than the new node's value.  If it is bigger check if there is a node to the right.  If there is more, continue checking to the right.
+    Takes in value, creates a node and adds it to the BST. Returns the tree.
+    Create a new node.  
+    If there isn't a root, make that node the root.  Return BST
+
+    create a variable called current.
+    
+    Create a while loop based on a boolean.
+
+    if the node is less than the current value and current.left exists.  reassign current to current.left If not insert the node at current.left.  return BST.
+
+    if the node is greater than the current value, check if current.right exists.  if so, set current to current.right.  if not insesrt new node at current.right.  return BST
+
+    If there is a node that has the same value as the node we are inserting, return undefined.  (it's already in the BST)
+
+
      */
 
     insert(value) {
