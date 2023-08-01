@@ -120,4 +120,32 @@ class BinarySearchTree {
         if (!found) return null;
         return current;
     }
+
+    /*
+            Breadth First Search
+
+            Create a queue (can be an array) and a variable to store the values of the nodes visited.  Place the root inside the queue
+            loop as long as their is anything inside the queue
+            -remove a node from the queue and push it to the stored values.
+            - if there are any nodes from the one removed, add them to the cue (on the left or on the right)
+
+            return a variable that stored all the values
+
+    */
+
+    BFS() {
+        if (this.root === null) return undefined;
+        let queue = [];
+        let stored = [];
+        queue.push(this.root);
+        while (queue.length > 0) {
+            let removedNode = queue.shift();
+            stored.push(removedNode);
+            if (removedNode.left) queue.push(removedNode.left)
+            if (removedNode.right) queue.push(removedNode.right)
+        }
+        return stored;
+
+    }
+
 }
