@@ -137,12 +137,13 @@ class BinarySearchTree {
         if (this.root === null) return undefined;
         let queue = [];
         let stored = [];
-        queue.push(this.root);
+        let node = this.root
+        queue.push(node);
         while (queue.length > 0) {
-            let removedNode = queue.shift();
-            stored.push(removedNode);
-            if (removedNode.left) queue.push(removedNode.left)
-            if (removedNode.right) queue.push(removedNode.right)
+            node = queue.shift();
+            stored.push(node.value);
+            if (node.left) queue.push(node.left)
+            if (node.right) queue.push(node.right)
         }
         return stored;
 
