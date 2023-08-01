@@ -149,4 +149,21 @@ class BinarySearchTree {
 
     }
 
+    /* 
+            Depth First Search
+            PreOrder - read node data first, traverse later
+            PostOrder - read node data last, traverse first
+            InOrder - traverse one side, read node data, traverse the other side.
+
+            create a variable to store array the values visited
+            create a variable to store the current node, assign this.root.
+            helper function
+            - push the value to the stored array
+            - if left, call helper function
+            - if right, call helper function
+
+            return stored values
+
+    */
+
 }
