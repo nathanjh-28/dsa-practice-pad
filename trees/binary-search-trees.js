@@ -57,26 +57,22 @@ class BinarySearchTree {
         if (this.root === null) {
             this.root = newNode;
             return this;
-        } else {
-            let current = this.root;
-            while (true) {
-                if (value === current.value) return undefined;
-                if (value < current.value) {
-                    if (currrent.left === null) {
-                        current.left = newNode;
-                        return this;
-                    } else {
-                        current = current.left;
-                    }
-                    if (value > current.value) {
-                        if (current.right === null) {
-                            current.right = newNode
-                            return this;
-                        } else {
-                            current = current.right;
-                        }
-                    }
+        }
+        let current = this.root;
+        while (true) {
+            if (value === current.value) return undefined;
+            if (value < current.value) {
+                if (current.left === null) {
+                    current.left = newNode;
+                    return this;
                 }
+                current = current.left;
+            } else {
+                if (current.right === null) {
+                    current.right = newNode
+                    return this;
+                }
+                current = current.right;
             }
         }
     }
@@ -182,3 +178,41 @@ class BinarySearchTree {
     }
 
 }
+
+/*
+function runTests() {
+    // Test 1: Create a BST and insert nodes
+    const bst = new BinarySearchTree();
+    bst.insert(10);
+    bst.insert(5);
+    bst.insert(15);
+    bst.insert(3);
+    bst.insert(7);
+    bst.insert(12);
+    bst.insert(17);
+}
+    console.log('Test 1: Insertion');
+    console.log('Expected: 10 -> 5 -> 15 -> 3 -> 7 -> 12 -> 17');
+    console.log('Actual:', bst.BFS().join(' -> '));
+    console.log('Result:', bst.BFS().join(' -> ') === '10 -> 5 -> 15 -> 3 -> 7 -> 12 -> 17');
+    console.log('-----------------------');
+
+    // Test 2: Find existing and non-existing nodes
+    console.log('Test 2: Find');
+    console.log('Expected: Found: 3, Found: 15, Not Found: 8');
+    console.log('Actual:');
+    console.log('Found:', bst.find(3) !== null ? '3' : 'Not Found');
+    console.log('Found:', bst.find(15) !== null ? '15' : 'Not Found');
+    console.log('Not Found:', bst.find(8) !== null ? '8' : 'Not Found');
+    console.log('Result:', bst.find(3) !== null && bst.find(15) !== null && bst.find(8) === null);
+    console.log('-----------------------');
+
+    // Test 3: DFS Pre-Order
+    console.log('Test 3: DFS Pre-Order');
+    console.log('Expected: 10 -> 5 -> 3 -> 7 -> 15 -> 12 -> 17');
+    console.log('Actual:', bst.DFS_PreOrder().join(' -> '));
+    console.log('Result:', bst.DFS_PreOrder().join(' -> ') === '10 -> 5 -> 3 -> 7 -> 15 -> 12 -> 17');
+    console.log('-----------------------');
+}
+*/
+runTests();
