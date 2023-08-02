@@ -166,4 +166,19 @@ class BinarySearchTree {
 
     */
 
+    DFS_PreOrder() {
+        let store = [];
+        let current = this.root;
+
+        function traverse(node) {
+            store.push(node.value);
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right)
+        }
+
+        traverse(current)
+
+        return store;
+    }
+
 }
